@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>For Sheryl</title>
     <style>
         * {
@@ -322,6 +322,137 @@
             pointer-events: none;
             display: none;
         }
+
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            .lovers-container {
+                width: 220px;
+                height: 220px;
+                margin-bottom: 20px;
+            }
+
+            .person1 {
+                left: 40px;
+            }
+
+            .person2 {
+                right: 40px;
+            }
+
+            .head {
+                width: 45px;
+                height: 52px;
+            }
+
+            .hair {
+                height: 30px;
+            }
+
+            .person2 .hair {
+                height: 38px;
+            }
+
+            .eyes {
+                top: 22px;
+                gap: 10px;
+            }
+
+            .eye {
+                width: 6px;
+                height: 2px;
+            }
+
+            .blush {
+                top: 30px;
+                width: 10px;
+                height: 5px;
+            }
+
+            .lips {
+                bottom: 10px;
+                width: 8px;
+                height: 4px;
+            }
+
+            .body {
+                width: 38px;
+                height: 60px;
+            }
+
+            .arm {
+                width: 45px;
+                height: 12px;
+                right: -22px;
+            }
+
+            .heart {
+                font-size: 16px;
+            }
+
+            .question {
+                font-size: 20px;
+                margin-bottom: 25px;
+                padding: 0 10px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+                height: auto;
+            }
+
+            .btn {
+                padding: 12px 35px;
+                font-size: 18px;
+            }
+
+            .btn-no {
+                position: relative;
+            }
+
+            .big-text {
+                font-size: 36px;
+                padding: 0 15px;
+            }
+
+            .result-hearts {
+                font-size: 28px;
+                word-spacing: -5px;
+            }
+
+            .result p {
+                font-size: 18px !important;
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .lovers-container {
+                width: 180px;
+                height: 180px;
+            }
+
+            .person1 {
+                left: 30px;
+            }
+
+            .person2 {
+                right: 30px;
+            }
+
+            .question {
+                font-size: 18px;
+            }
+
+            .big-text {
+                font-size: 28px;
+            }
+
+            .result-hearts {
+                font-size: 22px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -412,8 +543,15 @@
         }
 
         noBtn.addEventListener('mouseenter', moveButton);
-        noBtn.addEventListener('touchstart', moveButton);
+        noBtn.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            moveButton();
+        });
         noBtn.addEventListener('focus', moveButton);
+        noBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            moveButton();
+        });
 
         function showResult() {
             document.getElementById('mainContent').classList.add('hide');
